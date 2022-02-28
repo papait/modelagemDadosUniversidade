@@ -1,0 +1,229 @@
+MODELAGEM DE BANCO DE DADOS
+
+Dados: Fatos que podem ser armezenados em algum meio sem alguma significancia sozinho. CPF, NOME ...
+Informações. Dados colocados em contexto ou seja, que possuem algum ou produiz algum significado
+Metadados: Dados sobre os dados. Representação dos dados no Banco
+Bancos de dados: Coleção organizada de dados. Modelam de forma abstratar os aspectos do mundo real
+	- Posso processar dos dados presente no BD
+	- Dados compotos por diversos objetos, tabela, esquema, consultas ...
+Aplicações BD, Sistemas bancarios, Reserva de hoteis, E-commerce
+SGBD: Coleção de software criar ou alterar os BD
+	- Manipular, construit, compartilham os BD entre aplicações usiarios
+	- Protegm o bd 
+Sistema de BD: Que contem BD e o SGBD e os aplicativos que acessão o BANCO
+Usuários do BD: Pode ser o final, Dev,Administrator DBA
+
+Caracteristicas e Funcionalidades:
+	- Controle redundância
+	-Exibir as informações de formas destintas (mutiplas visõpes)
+	- Controle de usuarios, Backup e Reastauração
+	-Autenticação e autorização de acesso
+TIPOS BD
+Hierarquico, Rede, Relacional
+
+
+MODELO RELACIONAL
+
+Modelo: é um estruura que ajuda a transmetir os conceitos que estão na mente do projetista
+	- Usando em taraf descrever. analisar, especificas e comuniar ideias	
+	- Tem que tem detalhes suficientes para o desenv do projeto consiga criar o BD
+	- Comum dois papeis PROJETO E O QUE IMPLEMNETA O BD 
+Modelagem de Dados: Processo de Criação de um modelo de dados para um sistemas de informação utilizando e aplicando técnicas especificdas
+	- Processo responsavel por definir e analsar requisitos de dados necessarios para regras de negocio do seu cliente
+	- Fornece a estrutura dos dados em um SI para dps implementar (IMPORTANTE SEMPRE REALIZAR ANTÉS DE IMPLEMENTAR DIRETO SGBD)
+Modelos de Dados: Varios O MAIS USADO É O RELACIONAL
+Modelo Relacional = Dados organizados em coleções de tabelas bidimensional (Relações)
+		- Relação forma de organização linhas x colunas
+
+Banco de dados Relacional: é o banco criado a partir do modelo relacional com as coleção de relações
+	Componentes: Tabelas, Linhas Tuplas(Registro), Colunas, Relacionamento, Indicesm Sp m Triggers, PK e FK.
+Análise de Requisitos: Coleta de dados do cliente antes da modelagem do BD
+
+MER: Desenv de um diagrama a partir das espeficicações do negocio do usuário que ilustra as entidades em um negocios e tambme relacionamentos entre elas
+	-Representação grafica do BD para facilitar a vizualização com detalhes e o relacionamentos do BD
+	- Compoentes, entidades, atribibuto, e relacionamento.
+
+
+
+NIVEIS DE MODELAGEM DE DADOS
+
+Modelo conceitual: Primeira faser, representação do mundo real do bd e seus relacionamentos de forma simplificada
+	-projeto n depende do sgbd posso usar qualquer soft
+	- sem detalhes da implementação (GENERICO) Abstrato
+Modelo lógico: Conceitos que usuário ententende ainda, mas proximo do físico
+	_ projeto tb n depende do sgbd
+	- Já Definir o tipo dos dados a logica e os relacionamentos
+	- informaçõs mais detalhadas
+Modelo física: Detalhar a estrutura do BD e seus componentes (tabelas, camposm tipos de valores, restriçoes)
+	- Modelo fica mais amarrado com o SGBD dependendo do seu caso
+
+Arquiteutra de três niveis: Nome desses niveis
+	-seguindo a ordem conceituao -> Lógico e Físico
+
+Esquema do BD
+	- Definição do BD especificado durantes o projeto armazenada do dicionarios de dados
+	- Estrutura do BD a representação do todo
+	- O esquema raramente muda
+	- Nele que vamos definir, tabelas, campos, relacion, função,..
+	- Nele que a ornização dos dados e vista em planoo que mostra como bd é contruidop
+
+Etapas Desenvolvimento de UM BD
+	- Especificação e Análise de requisitos
+	-Niveis de modelagem, conceitual, logico e físico
+
+
+MODELO ENTIDADE-RELACIONAMENTO
+
+	-Modelo conceitual descrever os objetos envolvidos no dominio do sistama
+	-MER permite uma representação de forma abstratar
+	-Relacionamento das entidades por diagramas gaficos (DER)
+	- Modelo é uma ideia conceitual das entidades, atrib, relacionamentos que tran informaç~eos do dados
+	- Diagrama e a representação da associação do MER
+Componentes/elementos retangulos-entidades, Elipse Atributos, Losango relacionamentos, linha ligam
+
+
+ENTIDADES
+	- Representação de algo importante para usuario ou cliente com importância BD
+	- Representa algo abstrato ou físico, como tema, tópico ou conceito de negocio
+	- Instância de Entidade (Objeto da entiddade)
+
+	- Nomeando as entidades substantivos explicitos e relacionado com a função
+		-Produto, Cliente, Venda, Estoque
+	- Representação dos nomes no meio do retangulo (forma gráfica)
+	- REGRAS OLHAR NO VIDEO https://www.youtube.com/watch?v=poeUGQl52YI&list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD&index=5
+	- Essa padronização facilita a manutençõa do BD
+Instância de Entidades mesma pegada Orientado Objeto
+
+
+ATRIBUTOS
+
+	- Descreve caracteristica de uma entidade
+	- Possuem um tipo de dado (dominio),nome e valor.
+	- Representação elipse ou não.
+	- Tipos, simples, composto, multivalorado, determinante, indentificador
+	- Simples: Não possui nada de especial sao indivisiveis (sem derivação de outro atributos)
+	- Compostos: Formado em atributos menores, ou seja, subdivido em atributos menores	(sempre colocar em subatribu facilitar as consultas)
+	- Multivalorado: Pode conter mais de um valor para um mesmo registro (Telefone residencial, empresarial, recado...)
+	- Determinante: Ele determiinar de forma unica as instância de uma entidade (só existe 1 instancia nunca duas com o mesmo valor)
+	- Identificadores: Uma chave identifica uma instância especifica na classe entidade. (única, Não unicas(FK)) Pode se repetir os valores
+
+RELAÇÕES
+	- Entidade conceito do mundo real exm client ou produto
+	- Conjunto de registros (tuplas) que representam um modelo de uma entidade
+	- Cada registro representa uma instancia da entidade e esse conjunto com seus seus atributos e CHAMADO RELAÇÃO
+	- Tabela bidimencional  com caracteristicas linhas coluna, criada a apartider de uma entidade
+	- Linha contem dados da instancia da entidade (registros)
+	- Coluna contem dados sobre atributos da entidade (campos)
+Caracteristicas cada celula da tabela tem um unico valor
+	-Valores na msma coluna são do mesmo tipo (dominio)
+	- Coluna nome unicos
+	- n tem linha identicas
+	- REÇALAÇÕES GERE AS TABELAS NO BANCO
+
+RELACIONAMENTOS
+	- Coneccão entre as entidades por meio de relacionamentos
+	- Estrurua que indica associação de elemtnos de uma ou mais enidades
+Porque relacionemtnos BD?
+	- Combinar dos dados das diferentes entidades armazenados em tablea diferentes para atender as demandas do usuário
+	- Associção de informações de entidades
+	- Representação em DER losango
+Grau do relacionamento
+	- Quantidade entidades relacionadas que participam entre si (unário, binario, ternário...)
+Realizando os relacionamenos
+	- Atributo com um identificdos PK e usando FK relacionar os dados
+
+CHAVES PK, FK
+
+	-Chave consiste um ou mais coluna de uma relação cujo os valores são usados para idenfiticar uma linha
+	- pode ser unica(1 linha) ou não unica (varias linhas)
+Chave Candidata: são atributos ou grupo atributos com potencial de ser um PK (iSSO OCORRE NA MODELAGEM)
+		- Uma chava n usada como PK é conhecida como chave Alternativa ()
+Chave Primário: Chave canditada escolhida como PK da relação
+	- é usadsa para identificar de formar esclusivas os registros em uma tabela.
+Chave Estrangeira:
+	- Coluna em uma tabela que vai estabelecer o relacionamento com uma PK de outra tabela
+	- Qual registro da tabela atual está se relacionando com o registro de outra tabela
+Chave Compostas:
+	- Chave constituida de dois atributos ou mais
+	- Usada pra criar uma PK para alguns atributos não exclusivos, então combino duas colunas para ter esclusividade
+Chave Surrogada:
+	- Valor numérico, único, adicionado a uma relação para server de PK
+	-Não possui significado para o usuario (Numero aleatorio de forma exclusiva)
+	- geralmente usadas nos lugares das chaves compostas
+Instruções de criação de pk fk
+	- Valores não pode ser duplicados
+	- ideal não mudar os valores
+	- FK são baseadas em valores de dados, são classificados como ponteiros logicos
+	- Valores FK tem que corresponder ao valor da PK associada, caso contrario NULL
+	- FK sempre deve referencias uma PK ou coluna de chave únicas
+Dominio: é utilizado para definir os tipos de dados e qual valores são validos nos atributos(campo).
+
+CARDINALIDADE
+	- Quantidade de itens que se relacionam nas entidades
+	- Ela pode ser maxima ou mininas de instancias da entidade que pode se relacionar
+	- Maxma: numero maximo de instancias de  uma entidade que particiam de um relacionamento 1 ou N
+	- Minima: Numero minimo de instância da entidade minima que devem se relacionar
+	- Simbologia https://www.youtube.com/watch?v=OVBFFe4-jSM&list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD&index=10
+	- Relacionamento com cardinalidade de N para m é muito dificil de implementar em BD, então eu desmembro em novas entidades (associativas) em novos relacionamentos 1:n.
+
+DICIONÁRIO DE DADOS
+	- É uma ferramenta utilizada para auxiliar no seu projeto de desenvolvimentos  de BD.
+	- é documento utilizado para armezar informações sobre os objetos que estou modelando no meu banco (entidade, relacionament, atributos)
+	- Ajuda na manunent~]ap e diminuir erros, já que é um docmento com todas informalçoes
+	- Repositario de metadados 
+	- Posso fazer esse documento de forma descrita ou em tabela.
+
+DEPENDÊNCIAS
+	- Depencia funcional: Relacionar uma dependência de atributos. atributo x é Funcionalemnte depende de y
+		- Atributo determinante e atributo dependente
+		- Dependencia funcional total: Relação com uma PK composta 
+		- Dependencia funcional Parcial: Depende parcialemnte da PK composta
+		-  Dependencia funcional Transitiva: atributo n depende de outro que é PK
+	- Dependencia multivalorada: para um atrinuto a, existe um conjkuntos de valores de outros atributos B e C que estão associados com A, porem não precisam estar ssociados entre eles
+Essa depencias indicar problemas na tabelas de relações e assim aplicar técnicas de resolver esse problemas (Técnicas de normalização).
+
+NORMALIZAÇÃO E ANOMALIAS  
+	- Anomalias são problemas que ocorrem em BD mal planejados  e não normalizados. GERALMENTE EXECESSO DE DADOS TABELAS
+	- São causas dependcias parciais e transitivas
+	- Anomalia de inclusão: Problema para cadastrar dados caso o outro daado n esteja deponivel
+	- Anomalia de exclusão: ao excluir um registro dados referntes em outra tabela são excluidos.
+	- Anomalia de Módificação: Alterar um dados em uma tabela, dados em outras tabelas precisam ser alterados.
+	- Elimiinar a anomalias: Projetar os esquemas de relações (tabelas) no BD, para evitar essa anomilias. Esse processo é a normalização
+
+	- Normalização: consiste em um processo de análise de uma relação para assegurar que seja bem formada
+			- Decompor as relações com anomalias para produzir relações menores e bem estruturas
+			- inserir, elui ou mudificas registros sem criar anomalias
+			- Forma Normal FN, são três
+			- Objetivos, analisar esquemas de relação com base as suas depencias e PK.
+				- minimizar redundnancia, anomalias ....
+		
+PRIMEIRA FORMA NORMALIZAÇÃO
+	- Processo para reprovar atributos multivaloras, compostos e suas combinações
+	- Como uma tabela esta na FN1?
+		- Somento possui valores atômicos
+		- não ha grupos de atributos repetidos
+		- tem PK
+		- relação aninhadas, relações que podem ser escritas em outra tabela
+	- Dados átomicos, elementos de dados com menor nivel de detalhamentos.
+
+SEGUNDA FORMA NORMALIZAÇÃO
+	- Baseada na dependêncial funcional total
+	- Atributo da tabela precisa estar na sua forma funcional total com PK
+	- Precisa começar normalizando a primeira forma
+	- Atributos não chaves são funcionamente depentes de t odas as partes da PK
+	- Não pode ter existencias parciais
+	- Caso não esteja na NF2 criar uma nova relação e pegar esses atributos não chaves e utilizar as PK que estão relacionadas com elas
+
+TERCEIRA FORMA NORMALIZAÇÃO
+	- Baseanda na dependência transitiva
+	- A relação n dete ter um atributo não chave determinado funcionalemente por outros atributo não chave
+	- Vai estar na 3FN se estiver na 2FN e não existir depedencias transitivas
+	- pARA CADA ATRIBUTO NÃO CHAVE QUE FOR UMA DETERMINANTE NA RELAÇÃO, CRIE UMA nova tabela
+	- Passando pelas tres FN já posso implementar a tabela no BD
+ 
+FORMA NORMAL DE BOYCE-CODD
+	- Similar a 3fn
+	- Aplico se Tivesse duas ou mais chaves candidatas, Essas chaves candidatas fossem compostas e Elas tivessem superposição
+	-  Quando tabela tem mais de uma forma candidata
+	- Uma relação r está na FNBC sempre que uma dependencia funcional naão trivial x->a se mantiver em R, assim X é uma superchave de R
+https://www.youtube.com/watch?v=o6mSiTO-vak&list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD&index=19

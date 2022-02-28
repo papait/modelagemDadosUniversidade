@@ -1,0 +1,102 @@
+PROJETO CRIAR UM BANCO DE DADOS PARA GERENCIAMENTO DE UMA FACULDADE
+	- rEALIZAR CONTROLE CENTRALIZADO DE ALNOS, PROFESSORES, CURSOS, Disciplinas, histórico escolar e turmas.
+	- Fasea, Levantamento dos requisitos, Identificação do ER, Criar modelo ER e o DER, Dicionário de dados, Normalização, Implementação e Testes Básicos.
+
+Regras do Negócio - Levantamento dos requistos
+	- Um aluno só pode estar matriculado em um curso por vez
+	- Alunos possuem um código de Identificação RA.
+	-Cursos são compostor por disciplinas
+	- Cada disciplina terá no máximo 30 aluns por turma
+	- As disciplinas podem ser obrigatorios ou optativas, dependendo do curso
+	- As disciplinas pertencem a departamentos espec[ificos
+	- Cada disciplina possui um código de identificação.
+	- Alunos podem trancar matrícula, não estando então matriculador em nenuma disicplina no semestre
+	- eM CASA SEMESTRE, CADA ALUNO PODE SE MATtricular em no máximo 9 disicplina
+	- O aluno só po der reprovados no máximo 3 vexes na disciplinas
+	- A faculdade terá no macimo 3000 alunos matriculados simultaneamente, em 10 cursos distintos.
+	- Entram 300 alunos novos por ano
+	- Existem 90 disicplinas no total disponivel
+	- Um historico escolar tras todas as disciplinas cursas por um aluno, incluindo nota final, frequências e períodos do curso realizado.
+	- Professores podem ser cadastrados mesmo sem lecionar disciplinas
+	- Existem 40 professores trabalhando na escola.
+	- Cada profesor leciona no maximo 4 disciplinas diferentes
+	- Cada professo é vinculado a um departamento
+	- Professor tem código de professor.
+
+Identificação das entidades e Relacionamentos.
+	- Dicas varios elementos distintos de classe e que podem ter instancias, pode ser uma entidade.
+	- Ver numeros que podem ser contida nos texto  requisitos.
+	- Verbos  relacionados entras entidades pode nos dizer os relacionamento
+	- Verbos  relacionados a caractestiras inerentes da entidade pode ser um atributo
+	- Entidades compondo outras entidades.
+Entidade: aluno, professor, disciplina, curso, departamento, histórico, turma
+Relacionamentos: Aluno está matriculado em curso
+		Aluno Cursa disicplina
+		Aluno Realizour disicplina
+		Disciplina Pertece ao curso
+		Professor MinistrA disciplina
+		Professor pertece a departamento
+		Departamento é responsável por disiciplina
+		Departamento controla curso
+		Disciplina depende de disciplina.
+		Curso Gera turmas
+		Um Aluno pertece a uma turma
+		Historico Pertece a um aluno
+		Um historico e composto por disciplinas
+		
+		
+ATRIBUTOS
+Posso expandir a regra de negocio 
+
+ALUNO
+ Número de Matrícula, None, Endereço composto, Código do curso,... Olhar diagrama
+PROFESSOr
+Código do profesor, nome, Codigo do departamento
+
+DISCIPLINA
+código da disicplina, nome, Descrição curricuralar, codigo de departamento, numero alunos
+
+CURSO
+nome, codigo do curso e departamento
+
+DEPARTAMENTO
+código e nome.
+
+TURMA
+código curso, codigo turma, Data, inicio, Data fim, Periodo, Num alunos
+
+CARDINALIDADE AJUSTE
+
+ELIMINANDO OU DECOMPONDO O RELACIONAMENTO MUITOS PARA MUITOS (ENTIDADE associativas)
+	- Evitar repetição de dados e erros de integridade
+	-  Entidade associativa é implementada para resolver os relacion N-N
+	- Gera tabelas associativas, que permites mapear duas ou mais tabelas fazendo referencia utilizando chaves de cada tabela
+	- outro nome Tabaela de mapeamento, refe^rencia cruzada
+
+
+
+ACCEPT tipo_conta PROMPT 'digite algo'
+ACCEPT numero_tipo_conta PROMT 'DIGITE A CONTA'
+
+SET SERVEROUTPUT ON
+
+DECLARE
+
+V_tipo_conta tab_tipo_conta.id_tipo_conta%TYPE:= &tipo_conta;
+V_numero_tipo_conta tab_tipo_conta.nm_tipo_conta%TYPE:= &numero_tipo_conta;
+
+BEGIN
+
+INSERT INTO tab_tipo_conta (id_tipo_conta,nm_tipo_conta) VALUES (V_tipo_conta,V_numero_tipo_conta);
+
+END;
+
+
+ACCEPT id_tipo_conta PROMPT 'dIGITE ID DA CONTA'
+
+DELCARE
+V_id_tipo_conta tab_tipo_conta.id_tipo_conta%TYPE:=&id_tipo_conta;
+BEGIN 
+DELETE FROM tab_tipo_conta WHERE id_tipo_conta =  v_id_tipo_conta;
+END
+
