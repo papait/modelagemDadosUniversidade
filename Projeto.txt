@@ -74,29 +74,6 @@ ELIMINANDO OU DECOMPONDO O RELACIONAMENTO MUITOS PARA MUITOS (ENTIDADE associati
 	- outro nome Tabaela de mapeamento, refe^rencia cruzada
 
 
+NORMALIZAÇÃO
 
-ACCEPT tipo_conta PROMPT 'digite algo'
-ACCEPT numero_tipo_conta PROMT 'DIGITE A CONTA'
-
-SET SERVEROUTPUT ON
-
-DECLARE
-
-V_tipo_conta tab_tipo_conta.id_tipo_conta%TYPE:= &tipo_conta;
-V_numero_tipo_conta tab_tipo_conta.nm_tipo_conta%TYPE:= &numero_tipo_conta;
-
-BEGIN
-
-INSERT INTO tab_tipo_conta (id_tipo_conta,nm_tipo_conta) VALUES (V_tipo_conta,V_numero_tipo_conta);
-
-END;
-
-
-ACCEPT id_tipo_conta PROMPT 'dIGITE ID DA CONTA'
-
-DELCARE
-V_id_tipo_conta tab_tipo_conta.id_tipo_conta%TYPE:=&id_tipo_conta;
-BEGIN 
-DELETE FROM tab_tipo_conta WHERE id_tipo_conta =  v_id_tipo_conta;
-END
 

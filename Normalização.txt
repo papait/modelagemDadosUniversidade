@@ -1,0 +1,37 @@
+NORMALIZAÇÃO
+
+OBJETIVO: Apresentar um guia para todo BD para avalidsr a qualidade das nossas relaçoes, 
+o que vai ter uma tabela, como vai estar a tabela
+
+NORMALIZAÇÃO: Processo de refinamento das relações buscando reduzir as redundnacias
+dos dados, a fim de manter a maior a qualidade concistencias AO NOSSO modelo.
+
+FORMAS NORMAIS: Reprenta um nivel de tratamento desses niveis de redundancias e a prevenção de anomalias
+de atualização do BD
+
+SEIS variações de formas normais.
+4 E 5 formas normais são muito restritivas.
+
+Para normaliza primeiro identificamos o problema na tabela
+
+PRIMEIRA FORMA: Todos os atributos da relação devem ser átomicos, ou seja, 
+não multivalorados
+	- Atributos multivalorados são muito complicados para retornar as informações das consultas.
+	- Posso resolver o criando mais relações
+		- Melhora o mapeamento direto e não redundante, Não há duplicidade valores,
+		  não ha disperdício evidente de espaço
+	- Anomalia de Inserção: problemas para inseir nossas instancias na tabela. (Mesma tabela coisas diferentes)
+	- Anomalia de Remoção: problemas para remoção das nossas instancia na tabela. (Mesma tabela coisas diferentes)
+DEPENDÊNCIA FUNCIONAL: Dependencia de atributos.... Uma Chave mapea um unico valor
+
+SEGUNDA FORMA: Todos os atributos não chave dependem funcionalmente da chava primária inteira.
+	- Resolver problema na decomposição da nossa relação
+TERCEIRA FORMA: Eliminar todas as depencias funcionais transitivas.
+	- dependencia precisam ser diretas
+	- mapeamento não pode ser realizado utilizando atributos intermediarios, apenas mapeamento direto
+	de um atributo chave e um não chave.
+	- solução decompondo as relações
+NORMALIZAÇÃO BOYCE-CODD (fnbc): Uma variação da 3FN e mais retritiva
+	- Para estar na FNBC, todas a dependencias funcionais  de pelno menos um dos seguintes itens se aplicas
+		- alfa -> beta é uma dependencia funcional trivial alfa e beta são relacões
+		- alfa é uma superchave da relação
